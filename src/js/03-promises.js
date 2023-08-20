@@ -14,7 +14,7 @@ function handlerSubmit(evt) {
 
   for (let i = 0; i < amount; i++) {
     let step = Number(stepInput.value);
-    currentDelay = delay + step * i;
+    let currentDelay = delay + step * i;
     createPromise(i + 1, currentDelay);
   }
 }
@@ -33,13 +33,11 @@ function createPromise(position, delay) {
 
   promise
     .then(({ position, delay }) => {
-      console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
       return Notiflix.Notify.success(
         `✅ Fulfilled promise ${position} in ${delay}ms`
       );
     })
     .catch(({ position, delay }) => {
-      console.log(`❌ Rejected promise ${position} in ${delay}ms`);
       return Notiflix.Notify.failure(
         `❌ Rejected promise ${position} in ${delay}ms`
       );
