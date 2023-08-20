@@ -20,8 +20,8 @@ function handlerSubmit(evt) {
 }
 
 function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
   const promise = new Promise((resolve, reject) => {
+    const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
